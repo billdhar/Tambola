@@ -1,1 +1,1 @@
-# Tambola
+# Tambola/Housie Ticket Generator
