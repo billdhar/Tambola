@@ -6,5 +6,5 @@ In the "Main.py" file, set the value of NUMBER_OF_TICKETS to the number of ticke
 Make sure you have all the folders in place and the libraries installed.<br>
 Execute the "Main.py" file.
 
-The Tambola/Housie tickets will be saved in the "Ticket Images" folder.
+The Tambola/Housie tickets will be saved in the "Ticket Images" folder.<br>
 Cheers!
