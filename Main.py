@@ -83,13 +83,15 @@ def convert_tickets():
                     text_x = text_start_x + (col*table_width/len(file_data[row])) + left_text_margin - (text_width/2)
                     img.text((text_x, text_y - (text_height/2)), text, fill="black", font=font, align="left")
 
-        img_template.save(ticket_image_path + "/" + file_name + ".png")
+        file_path = ticket_image_path + "/" + file_name + ".png"
+        img_template.save(file_path)
+        add_footer(file_path, "Created by: Tambola Generator")
 
         if VERBOSE:
             print("Created... ", file_name)
 
 
-def add_footer(file_path, email_address):
+def add_footer(file_path, footer_text):
 
     table_origin_x = 85
     table_origin_y = 150
@@ -103,14 +105,15 @@ def add_footer(file_path, email_address):
     img = ImageDraw.Draw(img_final)
     font = ImageFont.truetype(r'C:\Users\System-Pc\Desktop\arial.ttf', 30)
 
-    text_width, text_height = img.textsize(email_address, font=font)
+    text_width, text_height = img.textsize(footer_text, font=font)
     footer_x = table_origin_x + table_width - footer_offset_x - (text_width/2)
     footer_y = table_origin_y + table_height + footer_offset_y
-    img.text((footer_x, footer_y), email_address, fill="black", font=font, align="right")
+    img.text((footer_x, footer_y), footer_text, fill="black", font=font, align="right")
     img_final.save(file_path)
 
 
-create_tickets()
+delete_previous_tickets()
+create_tickets(NUMBER_OF_TICKETS)
 val = compare_all_tickets(ticket_text_path)
 if val:
     convert_tickets()
