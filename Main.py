@@ -8,10 +8,12 @@ import os
 ticket_text_path = "Ticket Text"
 template_path = "Template/Tambola Template.png"
 ticket_image_path = "Ticket Images"
-mail_list_path = "Mail List.txt"
 ticket_tracker_path = "Ticket Tracker.txt"
 
 VERBOSE = True
+
+# Required number of tickets
+NUMBER_OF_TICKETS = 25
 
 
 def create_tickets(n=1):
@@ -108,11 +110,8 @@ def add_footer(file_path, email_address):
     img_final.save(file_path)
 
 
-delete_previous_tickets()
-ticket_nums = len(set(open(mail_list_path, 'r').readlines()))
-create_tickets(ticket_nums)
+create_tickets()
 val = compare_all_tickets(ticket_text_path)
-
 if val:
     convert_tickets()
 
