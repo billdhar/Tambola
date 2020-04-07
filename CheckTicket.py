@@ -1,8 +1,9 @@
 import os
 
-def_path = './Tickets'
+def_path = './Ticket Text'
 
-def save_ticket(temp_ticket, dir_path = def_path):
+
+def save_ticket(temp_ticket, dir_path=def_path):
     tickets = get_ticket_list(dir_path)
     match = False
     for ticket in tickets:
@@ -41,5 +42,3 @@ def get_ticket_list(dir_path=def_path):
                 tickets.append(file)
             temp_file.close()
     return tickets
-
-
